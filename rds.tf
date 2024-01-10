@@ -1,3 +1,7 @@
+/*
+  RDS DB Instance
+  Creates a RDS DB Instance
+*/
 resource "aws_security_group" "rds_security_group" {
   name        = "rds_security_group"
   description = "Allow inbound traffic from all IPv4 addresses"
@@ -27,6 +31,9 @@ resource "aws_security_group" "rds_security_group" {
   }]
 }
 
+/*
+  RDS Instance configuration
+*/
 resource "aws_db_instance" "sample_rds" {
   allocated_storage      = var.rds_db_storage_size
   engine                 = var.rds_db_engine
@@ -43,11 +50,17 @@ resource "aws_db_instance" "sample_rds" {
   }
 }
 
+/*
+  RDS DB Password Generation
+*/
 resource "random_password" "example_password" {
   length  = 16
   special = true
 }
 
+/*
+  Outputs RDS instance endpoint, username and password
+*/
 output "rds_endpoint" {
   value = aws_db_instance.sample_rds.endpoint
 }
