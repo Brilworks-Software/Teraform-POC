@@ -66,12 +66,19 @@ Ensure you have the following prerequisites in place before running the Terrafor
 
 ## Terraform Variables
 
+### Common Variables
+
 - `aws_region`: The AWS region where resources will be created.
+
+### S3 & Cloudfront Variables
 - `bucket_name`: The unique name for the S3 bucket.
 - `index_file_path`: The file path to the index.html file.
 - `index_file_name`: The name of the index file (e.g., index.html).
 - `index_document`: The custom index document for the S3 bucket.
 - `error_document`: The custom error document for the S3 bucket.
+
+### RDS Variables
+
 - `rds_username`: The username for the RDS instance.
 - `rds_db_name`: The name of the default database on the RDS instance.
 - `rds_db_port`: The port on which the RDS instance accepts connections.
@@ -83,6 +90,20 @@ Ensure you have the following prerequisites in place before running the Terrafor
 - `rds_db_parameter_group_family`: The family of the DB parameter group for the RDS instance.
 - `rds_db_skip_final_snapshot`: Determines whether a final DB snapshot is created before deleting the RDS instance.
 - `rds_db_publicly_accessible`: Specifies whether the RDS instance can be publicly accessed.
+
+### Elastic Beanstalk Variables
+
+- `environment_name`: A unique name for your Elastic Beanstalk environment.
+- `application_name`: The name of your Elastic Beanstalk application.
+- `solution_stack_name`: The solution stack to use for your Elastic Beanstalk environment (e.g., '64bit Amazon Linux 2023 v4.1.2 running Corretto 17').
+- `root_volume_size`: The size of the root volume for instances in the Elastic Beanstalk environment.
+- `max_batch_size`: The maximum batch size for updates to instances in the Elastic Beanstalk environment.
+- `instance_type`: The EC2 instance type for instances in the Elastic Beanstalk environment.
+- `min_instance_in_service`: The minimum number of instances allowed in the Elastic Beanstalk environment.
+- `min_auto_scaling_group_size`: The minimum size of the Auto Scaling group for the Elastic Beanstalk environment.
+- `max_auto_scaling_group_size`: The maximum size of the Auto Scaling group for the Elastic Beanstalk environment.
+- `root_domain_name`: The root domain name for the Elastic Beanstalk environment.
+
 
 ## Outputs
 
