@@ -37,7 +37,7 @@ resource "aws_security_group" "rds_security_group" {
 resource "aws_db_instance" "sample_rds" {
   allocated_storage      = var.rds_db_storage_size
   engine                 = var.rds_db_engine
-  instance_class         = var.rds_db_instance_class
+  instance_class         = var.rds_db_instance_type
   username               = var.rds_username
   password               = random_password.example_password.result
   identifier             = replace("${var.rds_db_name}", "[^a-z0-9-]", "-")
